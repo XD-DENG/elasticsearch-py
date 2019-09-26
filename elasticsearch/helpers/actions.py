@@ -466,8 +466,7 @@ def scan(
 
     finally:
         if scroll_ids and clear_scroll:
-            for id_to_clear in scroll_ids:
-                client.clear_scroll(body={"scroll_id": [id_to_clear]}, ignore=(404,))
+            client.clear_scroll(body={"scroll_id": list(scroll_ids)}, ignore=(404,))
 
 
 def reindex(
